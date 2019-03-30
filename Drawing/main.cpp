@@ -64,7 +64,6 @@ int main()
 				if (drawingUI.isMouseInCanvas(mousePos))
 				{
 					shapeMgr.addShape(mousePos, settingsMgr.getCurShape(), settingsMgr.getCurColor());
-					
 				}
 			}
 		}

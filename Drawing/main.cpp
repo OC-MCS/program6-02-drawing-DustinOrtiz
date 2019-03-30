@@ -55,7 +55,7 @@ int main()
 			else if (event.type == Event::MouseButtonReleased)
 			{
 				Vector2f mousePos = window.mapPixelToCoords(Mouse::getPosition(window));
-				settingsUI.handleMouseUp(mousePos);
+				settingsUI.handleMouseUp(mousePos, &shapeMgr);
 			}
 			else if (event.type == Event::MouseMoved && Mouse::isButtonPressed(Mouse::Button::Left))
 			{
@@ -64,6 +64,7 @@ int main()
 				if (drawingUI.isMouseInCanvas(mousePos))
 				{
 					shapeMgr.addShape(mousePos, settingsMgr.getCurShape(), settingsMgr.getCurColor());
+					
 				}
 			}
 		}
@@ -71,9 +72,9 @@ int main()
 		window.clear();
 
 		settingsUI.draw(window);
-
+		
 		drawingUI.draw(window, &shapeMgr);
-
+		
 		window.display();
 	} 
 

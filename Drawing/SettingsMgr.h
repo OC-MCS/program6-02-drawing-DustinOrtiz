@@ -5,7 +5,7 @@
 using namespace std;
 using namespace sf;
 
-enum ShapeEnum { CIRCLE, SQUARE, NOTHING }; // Contains which shape or no shape.
+enum ShapeEnum { CIRCLE, SQUARE, CLEARSELECTED, CLEARCANVAS, NOTHING }; // Contains which shape or no shape.
 
 class SettingsMgr // Maintains current setting.
 {

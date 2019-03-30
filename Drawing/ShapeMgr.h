@@ -12,18 +12,6 @@ private:
 	vector<DrawingShape*> shapes; // Stores shapes and colors.
 public:
 
-	//===============================
-	// ShapeMgr: Default constructor.
-	// Parameters:
-	// None.
-	// Return Type: None.
-	//===============================
-
-	ShapeMgr()
-	{
-		shapes = {};
-	}
-
 	//=========================
 	// addShape: Adds shapes.
 	// Parameters:
@@ -35,19 +23,34 @@ public:
 
 	void addShape(Vector2f pos, ShapeEnum whichShape, Color color)
 	{
-		if (whichShape == CIRCLE)
+		if (color != Color::White)
 		{
-			Circle *circle; // circle.
-			circle = new Circle(pos, color, whichShape);
-			shapes.push_back(circle);
-		}
+			if (whichShape == CIRCLE)
+			{
+				Circle *circle; // circle.
+				circle = new Circle(pos, color, whichShape);
+				shapes.push_back(circle);
+			}
 
-		if(whichShape == SQUARE)
-		{
-			Square *square; // Square.
-			square = new Square(pos, color, whichShape);
-			shapes.push_back(square);
+			if (whichShape == SQUARE)
+			{
+				Square *square; // Square.
+				square = new Square(pos, color, whichShape);
+				shapes.push_back(square);
+			}
 		}
+	}
+
+	//====================================
+	// clearShapes: Clears the shape data.
+	// Parameters:
+	// mgr: Shape manager.
+	// Return Type: None.
+	//====================================
+
+	void clearShapes(ShapeMgr *mgr)
+	{
+		mgr->shapes.clear();
 	}
 
 	//=============================================
@@ -62,12 +65,12 @@ public:
 		return shapes; // Returns shapes data.
 	}
 
-	//======================
+	//==============================
 	// saveData: Saves Data.
 	// Parameters:
 	// binaryFile: Binary File Data.
 	// Return Type: None.
-	//======================
+	//==============================
 
 	void saveData(fstream &binaryFile)
 	{
